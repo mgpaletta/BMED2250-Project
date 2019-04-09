@@ -1,0 +1,62 @@
+
+The following are the details of the experiments: 
+- 3 rotations per each movement,
+- 3 force level per each movement per each rotations
+- 3 trials per each movement
+
+The attached matlab file is made of two matrices 
+
+data_ACC: corresponding to the accelerometer data in three dimensions (X,Y,Z)
+data_EMG: corresponding to the EMG data collected from 6 channels
+
+
+First dimension of data_EMG (20000): In each trials we collected the EMG data at a sampling frequency of 4000 samples/sec and for 5 sec for each trial, therefore we end up with 20000 samples in each trial.
+Second dimension of data_EMG (6): We had 6 EMG channels, therefore, we had the second dimension of data_EMG as 6
+Third dimension of data_EMG (189): this is simply 7 classes, 3 trials per each movement, each at 3 force levels, each at 3 rotations. Hence 3*3*3*7 = 189.
+
+In the third dimension we have:
+First  63 trials belong to rotation1, 
+Second 63 trials belong to rotation2, 
+Third  63 trials belong to rotation3, 
+
+Now, lets divide data_EMG into the corresponding parts:
+
+|----------------- 63 trials -------------------|----------------- 63 trials -------------------|----------------- 63 trials -------------------|
+
+
+Each of the 63 trials has
+|--C1--|--C2_-|--C3--|--C4--|-C5--|--C6--|--C7--|--C1--|--C2_-|--C3--|--C4--|-C5--|--C6--|--C7--|--C1--|--C2_-|--C3--|--C4--|-C5--|--C6--|--C7--|
+
+
+Each C has 3 force levels
+|-----Low------|------Med------|-------High-----|
+
+
+Each force level has 3 trials
+|-----1------|------2------|-------3-----|
+
+Now, if you need to access the first   class from rotation  1, then that will be the data_EMG(:,:,1:9)
+Now, if you need to access the second  class from rotation  1, then that will be the data_EMG(:,:,10:18)
+Now, if you need to access the third   class from rotation  1, then that will be the data_EMG(:,:,19:27)
+Now, if you need to access the fourth  class from rotation  1, then that will be the data_EMG(:,:,28:36)
+Now, if you need to access the fifth   class from rotation  1, then that will be the data_EMG(:,:,37:45)
+Now, if you need to access the sixth   class from rotation  1, then that will be the data_EMG(:,:,46:54)
+Now, if you need to access the seventh class from rotation  1, then that will be the data_EMG(:,:,55:63)
+
+Now, if you need to access the first   class from rotation  2, then that will be the data_EMG(:,:,64:72)
+Now, if you need to access the second  class from rotation  2, then that will be the data_EMG(:,:,73:81
+Now, if you need to access the third   class from rotation  2, then that will be the data_EMG(:,:,82:90)
+Now, if you need to access the fourth  class from rotation  2, then that will be the data_EMG(:,:,91:99)
+Now, if you need to access the fifth   class from rotation  2, then that will be the data_EMG(:,:,100:108)
+Now, if you need to access the sixth   class from rotation  2, then that will be the data_EMG(:,:,109:117)
+Now, if you need to access the seventh class from rotation  2, then that will be the data_EMG(:,:,118:126)
+
+Now, if you need to access the first   class from rotation  3, then that will be the data_EMG(:,:,127:135)
+Now, if you need to access the second  class from rotation  3, then that will be the data_EMG(:,:,136:144)
+Now, if you need to access the third   class from rotation  3, then that will be the data_EMG(:,:,145:153)
+Now, if you need to access the fourth  class from rotation  3, then that will be the data_EMG(:,:,154:162)
+Now, if you need to access the fifth   class from rotation  3, then that will be the data_EMG(:,:,163:171)
+Now, if you need to access the sixth   class from rotation  3, then that will be the data_EMG(:,:,172:180)
+Now, if you need to access the seventh class from rotation  3, then that will be the data_EMG(:,:,181:189)
+
+
